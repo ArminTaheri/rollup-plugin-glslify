@@ -9,6 +9,8 @@ var stream = require('stream');
 var deparser = _interopDefault(require('glsl-deparser'));
 var parser = _interopDefault(require('glsl-parser'));
 var tokenizer = _interopDefault(require('glsl-tokenizer/stream'));
+var async = require('asyncawait/async');
+var await = require('asyncawait/await');
 
 //
 //  The MIT License
@@ -50,7 +52,7 @@ function glslify$1(options = {}) {
   return {
     name: 'glslify',
 
-    async transform(code, id) {
+    transform: async (function transform(code, id) {
       if (!filter(id)) {
         return null;
       }
@@ -59,7 +61,7 @@ function glslify$1(options = {}) {
         transform: options.transform
       });
       if (options.minify) {
-        const minified = await minify(source);
+        const minified = await (minify(source));
         if (!minified) {
           console.warn('Failed to minify:', id);
         } else {
@@ -71,7 +73,7 @@ function glslify$1(options = {}) {
         code: transformedCode,
         map: { mappings: '' }
       };
-    }
+    })
   };
 }
 

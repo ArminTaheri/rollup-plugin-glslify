@@ -1,5 +1,5 @@
 {
-  "name": "@shotamatsuda/rollup-plugin-glslify",
+  "name": "rollup-plugin-glslify",
   "version": "0.1.0",
   "description": "",
   "repository": "shotamatsuda/rollup-plugin-glslify",
@@ -21,6 +21,7 @@
     "test": "mocha"
   },
   "dependencies": {
+    "asyncawait": "^1.0.6",
     "glsl-deparser": "^1.0.0",
     "glsl-parser": "^2.0.0",
     "glsl-tokenizer": "^2.1.2",
